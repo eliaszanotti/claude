@@ -39,3 +39,58 @@ Accepted props:
 -   `className`: string (optional)
 
 Perfect integration with useActionState and getFieldError according to project guidelines.
+
+## Gestion des Erreurs avec Actions
+
+### Helper pour FormErrors
+
+```typescript
+// lib/form-errors.ts
+import type { ActionState } from "@/utils/action-state-types";
+
+export function getFieldErrorsForField(
+	state: ActionState | null,
+	fieldName: string
+) {
+	if (!state || !state.errors) return [];
+
+	const error = state.errors.find((error) => error.field === fieldName);
+	return error ? [{ message: error.message }] : [];
+}
+
+export function getGlobalErrors(state: ActionState | null) {
+	return state?.errors?.filter((e) => e.field === "global") || [];
+}
+```
+
+### Utilisation avec useActionState
+
+```tsx
+"use client";
+
+import { useActionState } from "react-dom";
+import { getFieldError } from "@/lib/form-utils";
+import { myAction } from "@/actions/my-action";
+import { FieldError } from "@/components/ui/field";
+
+export function MyForm() {
+	const [state, formAction] = useActionState(myAction, null);
+
+	return (
+		<form action={formAction}>
+			<div>
+				<label>Email</label>
+				<input name="email" type="email" />
+				<FieldError errors={getFieldErrorsForField(state, "email")} />
+			</div>
+
+			<FieldError
+				errors={getGlobalErrors(state)}
+				className="global-error"
+			/>
+
+			{state?.success && <div className="success">{state.message}</div>}
+		</form>
+	);
+}
+```
