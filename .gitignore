@@ -1,0 +1,9 @@
+debug/
+file-history/
+ide/
+projects/
+session-env/
+shell-snapshots/
+statsig/
+todos/
+history.jsonl
