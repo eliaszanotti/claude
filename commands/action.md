@@ -126,11 +126,13 @@ export const nomAction = withActionHandling(
 
 ## Format de Retour Obligatoire
 
-Toutes les actions doivent retourner `ActionState<T>` en utilisant les types de `@/utils/action-state-types` :
+Toutes les actions doivent retourner `ActionState<T>` en utilisant les types définis dans `/types/` :
 
 ```typescript
-import type { ActionState } from "@/utils/action-state-types";
+import type { ActionState } from "@/types/action-state-types";
 ```
+
+**IMPORTANT** : Toujours créer les types d'action dans le dossier `/types/` et **jamais** dans `/src/utils/`
 
 ## Gestion des Erreurs
 
