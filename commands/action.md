@@ -129,10 +129,25 @@ export const nomAction = withActionHandling(
 Toutes les actions doivent retourner `ActionState<T>` en utilisant les types définis dans `/types/` :
 
 ```typescript
-import type { ActionState } from "@/types/action-state-types";
+import type { ActionState } from "@/types/action-state";
 ```
 
 **IMPORTANT** : Toujours créer les types d'action dans le dossier `/types/` et **jamais** dans `/src/utils/`
+
+```typescript
+export interface ActionError {
+	field: string;
+	code: string;
+	message: string;
+}
+
+export interface ActionState<T = unknown> {
+	success: boolean;
+	message?: string;
+	data?: T;
+	errors?: ActionError[];
+}
+```
 
 ## Gestion des Erreurs
 
