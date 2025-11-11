@@ -1,28 +1,11 @@
 # Project Guidelines
 
-## Server Actions
+## Server Actions & Forms
 
-All server actions should return a standardized error format:
-
-```typescript
-export type ActionError = {
-	field: string;
-	code: string;
-	message: string;
-};
-
-export type ActionState<T = any> = {
-	success: boolean;
-	message?: string;
-	data?: T;
-	errors?: ActionError[];
-};
-```
-
--   Use "global" as field name for general errors (authentication, server errors)
--   Field-specific errors use the field name (email, password, etc.)
--   Use getFieldError(state, fieldName) utility from form-utils.ts for form error handling
--   Always use useActionState for server actions and forms
+-   Toujours consulter les commandes `~/.claude/commands/action` et `~/.claude/commands/form` avant de créer une action ou un formulaire
+-   Même pour un petit formulaire, suivre impérativement les guidelines des commandes
+-   Utiliser exclusivement `useActionState` (jamais `useFormState`)
+-   Utiliser le wrapper `withActionHandling` pour toutes les actions serveurs
 
 ## Data Fetching
 
