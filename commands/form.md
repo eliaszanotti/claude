@@ -74,7 +74,7 @@ import { myAction } from "@/actions/my-action";
 import { FieldError } from "@/components/ui/field";
 
 export function MyForm() {
-	const [state, formAction] = useActionState(myAction, null);
+	const [state, formAction, pending] = useActionState(myAction, null);
 
 	return (
 		<form action={formAction}>
@@ -90,6 +90,9 @@ export function MyForm() {
 			/>
 
 			{state?.success && <div className="success">{state.message}</div>}
+
+			{/* État pending pour le chargement */}
+			{pending && <div className="loading">Chargement...</div>}
 		</form>
 	);
 }
