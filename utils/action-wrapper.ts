@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { ActionState, ActionError } from "@/types/action-types";
+import type { ActionState, ActionError } from "./action-state-types";
 
 export function withActionHandling<T>(
 	schema: z.ZodSchema<T>,
