@@ -88,14 +88,16 @@ Pour chaque action, créer un fichier de type dans `/types/actions/` :
 
 ```typescript
 // types/actions/nom-action-type.ts
-export type NomActionData = {
-	// Type des données retournées dans ActionState<T>
-	id: string;
-	// autres champs
-};
+import { z } from "zod";
+import { nomActionSchema } from "@/schemas/nom-action.schema";
+
+// Type des données retournées dans ActionState<T>
+export type NomActionData = z.infer<typeof nomActionSchema>;
 
 export type NomActionState = ActionState<NomActionData>;
 ```
+
+**ASTUCE** : Utilise `z.infer<typeof nomActionSchema>` pour déduire automatiquement le type à partir de ton schéma Zod !
 
 ## Structure d'une Action
 
