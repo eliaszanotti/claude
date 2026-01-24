@@ -25,7 +25,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/home/elias/.claude/scripts/stop-hook.sh finished"
+            "command": "/home/elias/.claude/scripts/stop-hook.sh finished 2>/dev/null"
           }
         ]
       }
