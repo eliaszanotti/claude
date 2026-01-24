@@ -2,7 +2,7 @@
 name: Step 004
 description: eXamine
 previousstep: step-003-execute.md
-nextstep: null
+nextstep: step-005-test.md
 ---
 
 # 004 - eXamine
@@ -19,8 +19,7 @@ Verify the implementation and ensure quality.
    - Bugs or edge cases
    - Performance concerns
    - Code quality issues
-4. **Run tests** if available
-5. **Document changes** if needed
+4. **Document changes** if needed
 
 ## Output
 
@@ -30,17 +29,16 @@ Verify the implementation and ensure quality.
 
 ## Completion Checklist
 
-Before marking APEX cycle complete, verify:
+Before proceeding to next step, verify:
 
 - [ ] Implementation matches requirements from Step 001
 - [ ] Feature has been tested and works correctly
 - [ ] No critical bugs or issues found
 - [ ] Code quality is acceptable
 - [ ] Acceptance criteria from Step 001 are met
-- [ ] User has verified the feature
 
-**DO NOT mark cycle complete until ALL items above are verified.**
+**DO NOT proceed to next step until ALL items above are complete.**
 
 ---
 
-**When complete, ask user: "Step 004 (eXamine) complete. APEX cycle finished. Anything else needed?"**
+**When complete, ask user: "Step 004 (eXamine) complete. Ready to proceed to Step 005 (Test)?"**

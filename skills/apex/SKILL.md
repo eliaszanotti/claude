@@ -1,6 +1,6 @@
 ---
 name: APEX
-description: Execute features using APEX framework (Analyze, Plan, Execute, eXamine) with parallel sub-agents
+description: Execute features using APEX framework (Analyze, Plan, Execute, eXamine, Test) with parallel sub-agents
 arguments:
   - name: --pick
     description: Execute a single step without continuing (ex: --pick 001)
@@ -13,6 +13,7 @@ This skill executes features following the **APEX framework**:
 - **P**lan
 - **E**xecute
 - **e**X**amine**
+- **T**est
 
 ## Rules
 
@@ -45,11 +46,13 @@ Execute steps ONE BY ONE in numerical order:
 | 002 | Plan | step-002-plan.md |
 | 003 | Execute | step-003-execute.md |
 | 004 | eXamine | step-004-examine.md |
+| 005 | Test | step-005-test.md |
 
 ## Usage
 
 - `/apex` - Start from step 001, execute full cycle
 - `/apex --pick 001` - Execute only step 001 (Analyze)
 - `/apex --pick 003` - Execute only step 003 (Execute)
+- `/apex --pick 005` - Execute only step 005 (Test)
 
 **Start now by reading ONLY `skills/apex/step-001-analyze.md` and NOTHING ELSE.**
