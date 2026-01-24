@@ -25,7 +25,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "ffplay -nodisp -autoexit '/home/elias/.claude/song/finish.mp3' 2>/dev/null || true"
+            "command": "/home/elias/.claude/scripts/stop-hook.sh finished"
           }
         ]
       }
@@ -36,7 +36,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "ffplay -nodisp -autoexit '/home/elias/.claude/song/need-human.mp3' 2>/dev/null || true"
+            "command": "/home/elias/.claude/scripts/stop-hook.sh need-human"
           }
         ]
       }
