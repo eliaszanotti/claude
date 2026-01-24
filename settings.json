@@ -1,11 +1,52 @@
 {
   "env": {
-    "ANTHROPIC_AUTH_TOKEN": "64d378b1b5d94454b4e910ddcd2f65fc.HNcKKE2icgxoF0Ka",
+    "ANTHROPIC_AUTH_TOKEN": "27206fe8cb24420e8d9655ca88314908.loWt8tAp2U80dd4O",
     "ANTHROPIC_BASE_URL": "https://api.z.ai/api/anthropic",
-    "API_TIMEOUT_MS": "3000000",
+    "API_TIMEOUT_MS": "500000000",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "glm-4.5-air",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "glm-4.6",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "glm-4.6"
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "glm-4.7",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "glm-4.7"
   },
-  "alwaysThinkingEnabled": true
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun /home/elias/.claude/scripts/command-validator/src/cli.ts"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "ffplay -nodisp -autoexit '/home/elias/.claude/song/finish.mp3' 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "ffplay -nodisp -autoexit '/home/elias/.claude/song/need-human.mp3' 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bun /home/elias/.claude/scripts/statusline/src/index.ts",
+    "padding": 0
+  },
+  "alwaysThinkingEnabled": true,
+  "autoUpdatesChannel": "latest"
 }

@@ -6,4 +6,12 @@ session-env/
 shell-snapshots/
 statsig/
 todos/
+telemetry/
+plans/
+plugins/
+scripts/
+paste-cache/
+cache/
+agents/
 history.jsonl
+stats-cache.json
