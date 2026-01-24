@@ -1,7 +1,7 @@
 ---
 name: apex
 description: Execute features using APEX framework (Analyze, Plan, Execute, eXamine, Test) with parallel sub-agents. Use when implementing new features, refactoring code, or completing development tasks.
-argument-hint: [step-number] [-a]
+argument-hint: [--pick] [-a]
 ---
 
 This skill executes features following the **APEX framework**:
@@ -37,18 +37,18 @@ Execute steps ONE BY ONE in numerical order:
 
 ## Arguments
 
-### `[step-number]` (optional)
+### `--pick [step-number]` (optional)
 
 Execute only a specific step instead of the full cycle.
 
 **Values:** `001`, `002`, `003`, `004`, or `005`
 
 **Examples:**
-- `apex 001` - Execute step 001 (Analyze) only
-- `apex 003` - Execute step 003 (Execute) only
-- `apex 005` - Execute step 005 (Test) only
+- `apex --pick 001` - Execute step 001 (Analyze) only
+- `apex --pick 003` - Execute step 003 (Execute) only
+- `apex --pick 005` - Execute step 005 (Test) only
 
-### `[-a]` (optional)
+### `-a` (optional)
 
 Auto mode - skip confirmation prompts and automatically proceed to next step.
 
@@ -58,7 +58,7 @@ Auto mode - skip confirmation prompts and automatically proceed to next step.
 
 **Examples:**
 - `apex -a` - Full cycle, auto-advance through all steps
-- `apex 003 -a` - Execute step 003 only, no confirmation needed
+- `apex --pick 003 -a` - Execute step 003 only, no confirmation needed
 
 ## Steps
 
@@ -76,7 +76,7 @@ Auto mode - skip confirmation prompts and automatically proceed to next step.
 | -------------------------- | ----------------------------------------------------- |
 | `apex`                     | Full cycle with confirmation after each step          |
 | `apex -a`                  | Full cycle, auto-advance (no confirmations)           |
-| `apex 001`                 | Execute step 001 only with confirmation               |
-| `apex 003 -a`              | Execute step 003 only without confirmation             |
+| `apex --pick 001`          | Execute step 001 only with confirmation               |
+| `apex --pick 003 -a`       | Execute step 003 only without confirmation             |
 
 **Start now by reading ONLY `skills/apex/step-001-analyze.md` and NOTHING ELSE.**
