@@ -9,7 +9,6 @@ todos/
 telemetry/
 plans/
 plugins/
-scripts/
 paste-cache/
 cache/
 history.jsonl
