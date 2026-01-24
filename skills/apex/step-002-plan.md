@@ -1,7 +1,8 @@
 ---
 name: Step 002
 description: Plan
-nextstep: 003.md
+previousstep: step-001-analyze.md
+nextstep: step-003-execute.md
 ---
 
 # 002 - Plan

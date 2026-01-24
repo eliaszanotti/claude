@@ -1,7 +1,8 @@
 ---
 name: Step 001
 description: Analyze
-nextstep: 002.md
+previousstep: null
+nextstep: step-002-plan.md
 ---
 
 # 001 - Analyze

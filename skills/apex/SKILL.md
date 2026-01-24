@@ -28,12 +28,12 @@ This skill executes features following the **APEX framework**:
 
 Execute steps ONE BY ONE in numerical order:
 
-1. Read the current step file (ex: 001.md)
+1. Read the current step file (ex: step-001-analyze.md)
 2. Execute ONLY this step
 3. Verify the step is complete
 4. Ask user confirmation before next step
 
-**IMPORTANT - Start by reading ONLY `skills/apex/001.md` - NO OTHER FILES!**
+**IMPORTANT - Start by reading ONLY `skills/apex/step-001-analyze.md` - NO OTHER FILES!**
 
 **NEVER skip a step - ALWAYS execute steps in order.**
 
@@ -41,10 +41,10 @@ Execute steps ONE BY ONE in numerical order:
 
 | Step | Name | File |
 |------|------|------|
-| 001 | Analyze | 001.md |
-| 002 | Plan | 002.md |
-| 003 | Execute | 003.md |
-| 004 | eXamine | 004.md |
+| 001 | Analyze | step-001-analyze.md |
+| 002 | Plan | step-002-plan.md |
+| 003 | Execute | step-003-execute.md |
+| 004 | eXamine | step-004-examine.md |
 
 ## Usage
 
@@ -52,4 +52,4 @@ Execute steps ONE BY ONE in numerical order:
 - `/apex --pick 001` - Execute only step 001 (Analyze)
 - `/apex --pick 003` - Execute only step 003 (Execute)
 
-**Start now by reading ONLY `skills/apex/001.md` and NOTHING ELSE.**
+**Start now by reading ONLY `skills/apex/step-001-analyze.md` and NOTHING ELSE.**

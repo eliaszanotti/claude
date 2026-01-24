@@ -1,7 +1,8 @@
 ---
 name: Step 003
 description: Execute
-nextstep: 004.md
+previousstep: step-002-plan.md
+nextstep: step-004-examine.md
 ---
 
 # 003 - Execute
