@@ -12,6 +12,5 @@ plugins/
 scripts/
 paste-cache/
 cache/
-agents/
 history.jsonl
 stats-cache.json
