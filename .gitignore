@@ -11,5 +11,6 @@ plans/
 plugins/
 paste-cache/
 cache/
+tasks/
 history.jsonl
 stats-cache.json
