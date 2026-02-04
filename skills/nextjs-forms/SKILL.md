@@ -92,6 +92,19 @@ export default function MyForm() {
 - Always use `useActionToast` for automatic success/error toasts
 - Use `FormSubmit` component from `form.FormSubmit`
 
+**Form with side effects on success/error:**
+```tsx
+useActionToast(state, {
+    onSuccess: (result) => {
+        form.reset();
+        router.push(`/dashboard/annonces/${result.data}`);
+    },
+    onError: (result) => {
+        console.error("Erreur:", result.message);
+    },
+});
+```
+
 ---
 
 ## 2. Zod Schema
@@ -280,16 +293,26 @@ import { useEffect } from "react";
 import { toast } from "sonner";
 import type { ServerActionResult } from "@/types/server-action";
 
-export function useActionToast<T = void>(result: ServerActionResult<T> | null) {
+interface UseActionToastOptions<T> {
+    onSuccess?: (result: ServerActionResult<T>) => void;
+    onError?: (result: ServerActionResult<T>) => void;
+}
+
+export function useActionToast<T = void>(
+    result: ServerActionResult<T> | null,
+    options?: UseActionToastOptions<T>,
+) {
     useEffect(() => {
         if (!result) return;
 
         if (result.success) {
             toast.success(result.message || "Success");
+            options?.onSuccess?.(result);
         } else {
             toast.error(result.message || "An error occurred");
+            options?.onError?.(result);
         }
-    }, [result]);
+    }, [result, options]);
 }
 ```
 
@@ -297,3 +320,15 @@ export function useActionToast<T = void>(result: ServerActionResult<T> | null) {
 - Always call `useActionToast(state)` in the form component with the result from `useActionState`
 - Automatically displays success/error toasts based on `result.success`
 - Uses `result.message` for the toast content
+- **With callbacks** (for side effects like reset, redirect, close dialog):
+  ```tsx
+  useActionToast(state, {
+      onSuccess: (result) => {
+          form.reset();
+          router.push("/dashboard/companys");
+      },
+      onError: (result) => {
+          // Log error or custom handling
+      },
+  });
+  ```
