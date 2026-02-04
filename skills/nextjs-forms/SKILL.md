@@ -179,6 +179,8 @@ export async function myAction(
 
         return createErrorResult("Erreur lors de la mise à jour");
     }
+    // 5. Redirect (always outside try-catch)
+    redirect("/dashboard/my-path");
 }
 ```
 
@@ -191,6 +193,7 @@ export async function myAction(
 - Use `createErrorResult()` helper for errors
 - Revalidate paths after successful mutation
 - Log errors to console
+- **Redirects**: Always place redirects in the action (not the component) and **outside the try-catch block** (after the catch). See example below.
 
 ---
 
