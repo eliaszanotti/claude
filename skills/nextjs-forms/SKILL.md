@@ -167,7 +167,7 @@ export async function myAction(
         // 4. Return success
         return {
             success: true,
-            error: "Mise à jour réussie",
+            message: "Mise à jour réussie",
             data: updated,
         };
     } catch (error) {
@@ -260,8 +260,40 @@ fieldComponents: {
 // src/types/server-action.ts
 export interface ServerActionResult<T = void> {
     success: boolean;
-    error?: string;
-    zodError?: ZodError;
+    message?: string;
     data?: T;
 }
+
+export function createErrorResult<T = void>(
+    message: string,
+): ServerActionResult<T> {
+    return {
+        success: false,
+        message,
+    };
+}
 ```
+
+```tsx
+// src/hooks/use-action-toast.ts
+import { useEffect } from "react";
+import { toast } from "sonner";
+import type { ServerActionResult } from "@/types/server-action";
+
+export function useActionToast<T = void>(result: ServerActionResult<T> | null) {
+    useEffect(() => {
+        if (!result) return;
+
+        if (result.success) {
+            toast.success(result.message || "Success");
+        } else {
+            toast.error(result.message || "An error occurred");
+        }
+    }, [result]);
+}
+```
+
+**Usage:**
+- Always call `useActionToast(state)` in the form component with the result from `useActionState`
+- Automatically displays success/error toasts based on `result.success`
+- Uses `result.message` for the toast content
