@@ -12,13 +12,13 @@
 
 ## Architecture-Specific Guidelines
 
-These projects follow specific architecture patterns. See the corresponding docs:
+These projects follow specific architecture patterns. See the corresponding skills:
 
 ### Next.js Projects
 
 For projects using Next.js, Payload CMS, and the custom form system:
 
-- **Forms**: `~/.claude/docs/nextjs-forms.md`
+- **Forms**: Use `/nextjs-forms` skill for form patterns
   - `useAppForm`, `useActionState`, `useActionToast` pattern
   - Zod schemas in `src/schemas/`
   - Server actions with proper `ServerActionResult` typing
