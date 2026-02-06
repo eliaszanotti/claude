@@ -17,7 +17,9 @@ Implement the feature following the plan.
 2. **Create/modify files** as planned in Step 002
 3. **Follow code conventions** - Maintain consistency with existing code
 4. **Handle errors gracefully** - Add proper error handling
-5. **Test as you go** - Verify each piece works
+5. **Quick verification only** - Verify files look correct visually
+
+**IMPORTANT: DO NOT run TypeScript checks (`npx tsc --noEmit`), lint, or any code quality tools in this step. These will be done in Step 004 (eXamine).**
 
 ## Output
 
